@@ -24,6 +24,6 @@ if '{{ cookiecutter.add_Gitlab_CI_config }}' == 'n':
 subprocess_cmd('git init')
 subprocess_cmd('git add .')
 subprocess_cmd('pre-commit install')
-subprocess_cmd('git commit -a -m "Initial commit by cookiecutter"')
+subprocess_cmd('git commit -a -m "Initial commit"')
 
 print("Path to your new role in the local machine is " + os.getcwd())

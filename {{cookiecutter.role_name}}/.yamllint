@@ -1,5 +1,4 @@
 ---
-
 extends: default
 
 rules:
@@ -9,11 +8,30 @@ rules:
   brackets:
     max-spaces-inside: 1
     level: error
-  line-length: disable
-  truthy: disable
+  colons:
+    max-spaces-after: 1
+    level: error
+  commas:
+    max-spaces-after: 1
+    level: error
+  comments:
+    min-spaces-from-content: 1
   comments-indentation: disable
-
-ignore: |
-  roles
-  virtenv
-  venv
+  document-start: disable
+  empty-lines:
+    max: 3
+    level: error
+  hyphens:
+    max-spaces-after: 1
+    level: error
+  indentation:
+    spaces: 2
+    indent-sequences: whatever
+    level: error
+  key-duplicates: enable
+  line-length: disable
+  new-line-at-end-of-file: disable
+  new-lines:
+    type: unix
+  trailing-spaces: disable
+  truthy: disable

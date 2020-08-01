@@ -1,5 +1,4 @@
 ---
-
 dependency:
   name: galaxy
 driver:
@@ -10,7 +9,7 @@ lint: |
   ansible-lint
 platforms:
   - name: instance
-    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest"
+    image: "nekeal/${MOLECULE_DISTRO:-debian10}-ansible-systemd:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -18,9 +17,8 @@ platforms:
     pre_build_image: true
 provisioner:
   name: ansible
+  log: true
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
-  # options:
-  #   become: true
 verifier:
-  name: ansible
+  name: testinfra
