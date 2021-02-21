@@ -1,11 +1,6 @@
 #!/usr/bin/env python
-from __future__ import print_function
-
-# https://github.com/audreyr/cookiecutter/issues/723#issuecomment-350561930
-
-# print(os.getcwd())
-
 import os
+import shutil
 import subprocess
 
 
@@ -15,15 +10,11 @@ def subprocess_cmd(command):
     print(proc_stdout)
 
 
-if '{{ cookiecutter.add_travis_config }}' == 'n':
-    os.remove('.travis.yml')
-
-if '{{ cookiecutter.add_Gitlab_CI_config }}' == 'n':
-    os.remove('.gitlab-ci.yml')
+if '{{ cookiecutter.add_github_actions_config }}' == 'n':
+    shutil.rmtree(".github/workflows")
 
 subprocess_cmd('git init')
 subprocess_cmd('git add .')
 subprocess_cmd('pre-commit install')
-subprocess_cmd('git commit -a -m "Initial commit"')
 
-print("Path to your new role in the local machine is " + os.getcwd())
+print(f"Path to your new role is {os.getcwd()}")

@@ -23,7 +23,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: {{ cookiecutter.role_name }}, var_name: 42 }
+         - { role: {{ cookiecutter.role_name }} }
 
 License
 -------
