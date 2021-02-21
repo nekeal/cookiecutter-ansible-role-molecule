@@ -8,7 +8,7 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: instance
+  - name: ${MOLECULE_DISTRIBUTION:-debian10} 
     image: "nekeal/${MOLECULE_DISTRO:-debian10}-ansible-systemd:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
