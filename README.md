@@ -15,10 +15,7 @@ The template itself only needs python, [cookicuter](https://cookiecutter.readthe
 * Add .pre-commit-config.yaml used by [pre-commit](http://pre-commit.com/)
 * Add .gitignore with common files I don't want to track in git
 * Add configuration for [Molecule](http://molecule.readthedocs.io) in the "molecule" folder
-  * default molecule scenario runs on docker + centos7/systemd image
-  * There is another molecule scenario using Vagrant + bento/centos-7 box (1 core - 512MB ram - selinux=permissive)
-  * The vagrant scenario requires `pip install molecule-vagrant`
-* Add a travis or Gitlab-CI config file (Optional. By default it's not added)
+  * default molecule scenario runs on docker + debian10/systemd image
 * And probably something else that I forget... :)
 
 ## Usage
@@ -26,24 +23,12 @@ The template itself only needs python, [cookicuter](https://cookiecutter.readthe
 ### To initialize the role with cookiecuter
 ```
 $ pip install cookiecutter pre-commit
-$ cookiecutter gh:pescobar/cookiecutter-ansible-role-molecule
+$ cookiecutter gh:nekeal/cookiecutter-ansible-role-molecule
 ```
 
-### To initialize the role with molecule
-
-```
-$ pip install molecule pre-commit
-$ molecule init template --url https://github.com/pescobar/cookiecutter-ansible-role-molecule
-```
-
-### To test the default scenario docker + centos7/systemd image
+### To test the default scenario docker + debian10/systemd image
 ```
 $ molecule test
-```
-
-### To test the scenario with vagrant + centos7
-```
-$ molecule test -s vagrant
 ```
 
 ## Directory structure
@@ -62,11 +47,6 @@ ansible-role-example/
 │   │   ├── INSTALL.rst
 │   │   ├── molecule.yml
 │   │   └── verify.yml
-│   └── vagrant
-│       ├── converge.yml
-│       ├── INSTALL.rst
-│       ├── molecule.yml
-│       └── verify.yml
 ├── .pre-commit-config.yaml
 ├── README.md
 ├── tasks
