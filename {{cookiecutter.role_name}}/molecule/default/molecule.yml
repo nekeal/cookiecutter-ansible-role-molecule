@@ -4,11 +4,10 @@ dependency:
 driver:
   name: docker
 lint: |
-  set -e
   yamllint .
   ansible-lint
 platforms:
-  - name: ${MOLECULE_DISTRIBUTION:-debian10} 
+  - name: ${MOLECULE_DISTRIBUTION:-debian10}
     image: "nekeal/${MOLECULE_DISTRO:-debian10}-ansible-systemd:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
